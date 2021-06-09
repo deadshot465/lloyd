@@ -12,7 +12,7 @@
 (setv extensions ["cogs.info"])
 
 #@(bot.event (defn/a on_ready [] (print "Logged on as" bot.user)
-                                 (setv game (discord.Game "Architecturing"))
+                                 (setv game (discord.Game "Architecting"))
                                  (await (bot.change_presence :activity game :status discord.Status.online))
                                  (return)))
 #@(bot.event (defn/a on_message [message]
