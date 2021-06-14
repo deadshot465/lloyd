@@ -12,7 +12,7 @@
         (defn/a about [self ctx]
             (setv avatar_url (str self.bot.user.avatar_url))
             (setv embed (discord.Embed :color LLOYD_COLOR :description "Lloyd is inspired by the upcoming visual novel Camp Buddy: Scoutmaster's Season by [BLits Games](https://www.blitsgames.com/).\nLloyd version 0.0.1 was made and developed by:\n**Tetsuki Syu#1250**\nWritten with:\n[Hy](https://github.com/hylang/hy) and [discord.py](https://github.com/Rapptz/discord.py) library."))
-            (.set_footer embed :text "Lloyd Bot: Release 0.0.1 | 2021-06-09")
+            (.set_footer embed :text "Lloyd Bot: Release 0.1.1 | 2021-06-15")
             (.set_author embed :name "Lloyd from Camp Buddy" :icon_url STAR_ICON)
             (.set_thumbnail embed :url HY_LOGO)
             (await (.send ctx :embed embed))))
