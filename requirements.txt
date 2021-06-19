@@ -1,0 +1,4 @@
+discord.py>=1.7.3
+python-dotenv~=0.17.0
+requests~=2.25.0
+hy==1.0a1

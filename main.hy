@@ -9,7 +9,7 @@
 (dotenv.load_dotenv)
 (setv prefix (os.getenv "PREFIX"))
 (setv bot (commands.Bot :command_prefix prefix :intents intents))
-(setv extensions ["cogs.info" "cogs.fun"])
+(setv extensions ["cogs.info" "cogs.fun" "cogs.utility"])
 
 #@(bot.event (defn/a on_ready [] (print "Logged on as" bot.user)
                                  (setv game (discord.Game "Architecting"))
