@@ -52,8 +52,7 @@
                                         (.rstrip "\n'")))
     (setv description f"{description}{output}\n```")
     (if (> (len description) 2000)
-        (do (await (.send ctx "Sorry! The length of the result is too long. I can't send it!"))
-            (return True)))
+        (setv description (get description (slice 0 2000))))
     (setv embed (.Embed discord :description description :colour LLOYD-COLOR))
     (.set_author embed :name author.display_name  :icon_url author.avatar_url)
     (.set_thumbnail embed :url LISP-LOGO)
@@ -70,7 +69,8 @@
 
 (defn/a inner-loop [header token ctx attempts]
     (if (and (= (await (get-eval-result header token ctx)) False) (> attempts 0))
-        (await (inner-loop header token ctx (- attempts 1)))
+        (do (await (.sleep asyncio 2.0))
+            (await (inner-loop header token ctx (- attempts 1))))
         (if (<= attempts 0) (await (.send ctx "Max attempt reached! Sorry about that!")))))
 
 (defn/a execute [bot ctx content]
